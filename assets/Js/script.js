@@ -5,6 +5,17 @@ function calcularIdade(){
     let ano =  document.getElementsByTagName("input")[2]
     
     let erroDia = document.getElementById("errodia")
+    let erroMes = document.getElementById("erromes")
+    let erroAno = document.getElementById("erroano")
+
+    let textodia = document.getElementById("texto-dia")
+    let textomes = document.getElementById("texto-mes")
+    let textoano = document.getElementById("texto-ano")
+
+    let esdia= document.getElementById("dia")
+    let esmes= document.getElementById("mes")
+    let esano = document.getElementById("ano")
+
 
     let now = new Date()
     let bissexto = 0
@@ -14,67 +25,111 @@ function calcularIdade(){
 
     const lista30dias = [4,6,9,11]
 
-    dia = Number(dia.value)
-    mes = Number(mes.value)
-    ano = Number(ano.value)
-
-    DiaTotalMes = mes in lista30dias? 30 : 31
+    let diaValor = Number(dia.value)
+    let mesValor = Number(mes.value)
+    let anoValor = Number(ano.value)
     
 
-    if(dia == " " || mes == " " || ano == " "|| dia > 31 || mes > 12 || ano > anoAtual){
-            erroDia.innerText = "TEST"
-            window.alert("ERRO")
-        }
+    erroDia.innerText = ""
+    erroMes.innerText = ""
+    erroAno.innerText = ""
+
+    dia.style.borderColor = "hsl(0, 0%, 94%)"
+    mes.style.borderColor = "hsl(0, 0%, 94%)"
+    ano.style.borderColor = "hsl(0, 0%, 94%)"
+
+    textodia.style.color = "black"
+    textomes.style.color = "black"
+    textoano.style.color = "black"
+
+    DiaTotalMes = mesValor in lista30dias? 30 : 31
+
+
+    if(diaValor == " " || mesValor == " " || anoValor == " "|| diaValor > 31 || mesValor > 12 || anoValor > anoAtual){
+            erroDia.innerText = "This field is required"
+            erroMes.innerText = "This field is required"
+            erroAno.innerText = "This field is required"
+
+            dia.style.borderColor = "hsl(0, 100%, 67%)"
+            mes.style.borderColor = "hsl(0, 100%, 67%)"
+            ano.style.borderColor = "hsl(0, 100%, 67%)"
+
+            textodia.style.color = "hsl(0, 100%, 67%)"
+            textomes.style.color = "hsl(0, 100%, 67%)"
+            textoano.style.color = "hsl(0, 100%, 67%)"
+
+
+    }
 
     else{
 
-        if(mes == 2){
-            bissexto = ano %4 == 0 ? 29: 28
+        if(mesValor == 2){
+            bissexto = anoValor %4 == 0 ? 29: 28
             DiaTotalMes = bissexto
-            window.alert(`${DiaTotalMes}`)
+            
 
-            if(dia > DiaTotalMes  ){
-                window.alert("ERRO")
-                
+            if(diaValor > DiaTotalMes  ){
+                erroDia.innerText = "Must be a valid day"
+                erroMes.innerText = "Must be a valid day"
+                erroAno.innerText = "Must be a valid day"
+
+                dia.style.borderColor = "hsl(0, 100%, 67%)"
+                mes.style.borderColor = "hsl(0, 100%, 67%)"
+                ano.style.borderColor = "hsl(0, 100%, 67%)"
+    
+                textodia.style.color = "hsl(0, 100%, 67%)"
+                textomes.style.color = "hsl(0, 100%, 67%)"
+                textoano.style.color = "hsl(0, 100%, 67%)"
+                    
             }
 
             else{
-                ano = anoAtual - ano -1
-                mes =  0
-                dia = diaAtual - dia
-    
-                window.alert(`M1 FIM dias ${dia} meses ${mes} e idade ${ano}`)
+                anoValor = anoAtual - anoValor -1
+                mesValor =  0
+                diaValor = diaAtual - diaValor
+                
+                esdia.innerText = diaValor
+                esmes.innerText = mesValor
+                esano.innerText = anoValor
+                
             }     
         }
 
         else{
 
-            if(mesAtual < mes){
+            if(mesAtual < mesValor){
 
-                ano = anoAtual - ano -1
-                mes =  12- (mes - mesAtual) 
-                dia = diaAtual - dia
+                anoValor = anoAtual - anoValor -1
+                mesValor =  12- (mesValor - mesAtual) 
+                diaValor = diaAtual - diaValor
 
-                window.alert(`M FIM dias ${dia} meses ${mes} e idade ${ano}`)
+                esdia.innerText = diaValor
+                esmes.innerText = mesValor
+                esano.innerText = anoValor
 
             }
 
-            else if(mes == mesAtual){
+            else if(mesValor == mesAtual){
 
-                ano = anoAtual - ano -1
-                mes =  0
-                dia = diaAtual - dia
+                anoValor = anoAtual - anoValor 
+                mesValor =  0
+                diaValor = diaAtual - diaValor
 
-                window.alert(`M1 FIM dias ${dia} meses ${mes} e idade ${ano}`)
+                esdia.innerText = diaValor
+                esmes.innerText = mesValor
+                esano.innerText = anoValor
+
             }
 
             else{
                 
-                ano = anoAtual - ano -1
-                mes = ( 12- (mes - mesAtual))-12
-                dia = diaAtual - dia
+                anoValor = anoAtual - anoValor 
+                mesValor = ( 12- (mesValor - mesAtual))-12
+                diaValor = diaAtual - diaValor
 
-                window.alert(`FIM dias ${dia} meses ${mes} e idade ${ano}`)
+                esdia.innerText = diaValor
+                esmes.innerText = mesValor
+                esano.innerText = anoValor
             }
         }
     }

@@ -8,7 +8,6 @@
 
 body{
     background-color: hsl(0, 0%, 86%);
-    font-family: "Poppins"  sans-serif;
 }
 
 main{
@@ -19,49 +18,100 @@ main{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: brown;
+    
+    /* background-color: brown; */
+}
+
+label, input, p, #erros{
+    font-family: "Poppins", sans-serif; 
 }
 
 #conteudo{
-    width: 550px;
+    width: 510px;
     height: 400px;
     background-color: white;
+    border-radius: 10px;
+    
+    border-bottom-right-radius: 130px;
 }
 
 form{
      margin-top: 35px;
-     /* background-color: aqua; */
      text-align: left;
     flex-direction: row;
 }
 
 
-#textosinputs{
+  #textosinputs{
     display: block;
 }
 
 label{
-
-    font-size: 12px;
+    font-size: 10px;
     font-weight: normal;
-    text-align: left;
-    /* display: block; */
-    margin-left: 20px;
-    /* background-color: blueviolet; */
-   
+    font-weight: 600;
+    letter-spacing: 2px;
 
+    text-align: left;
+    text-transform: uppercase;
+
+    margin-left: 30px;
 }
-.data{
-    width: 90px;
+
+#texto-dia{
+    margin-right: 70px;
+}
+
+#texto-mes{
+    margin-right: 50px;
+}
+input{
+    width: 80px;
     height: 40px;
-    /* display: block; */
-    /* margin-top: 55px; */
-    
-    background-color: hsl(0, 0%, 94%);
+
+    padding-left: 15px;
+    margin-top: 5px;
+    margin-left: 30px;
+
+      
+    font-weight: 600;
+    font-size: 19px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 94%);
+    border-radius: 5px;
+
+    outline-color: hsl(259, 50%, 85%);
+
+    background-color: hsl(0, 0%, 100%);
 }
 
 #erros{
     display: block;
+    font-size: 10px;
+    font-style: italic;
+    color: hsl(0, 100%, 67%);
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+#erromes, #erroano{
+    margin-left: 27px;
+}
+
+#but{
+    display: flex;
+    align-items: center;
+    margin-top:5px;
+    margin-right: 40px;
+}
+
+hr{
+    border-bottom: 1px solid hsl(0, 0%, 86%);
+    flex: 1;
+    margin-left: 30px;
+  
 }
 
 button{
@@ -71,8 +121,27 @@ button{
 
     border-radius: 40px;
     cursor: pointer;
+    transition: .4;
+}
+
+button:hover{
+    background-color: hsl(0, 0%, 8%);
 }
 
 img{
-    width: 15px;
+    width: 25px;
+}
+
+p{
+    font-size: 57px;
+    font-weight: 800;
+    font-style: italic;
+    text-align: left;
+    line-height: 65px;
+
+    margin-left: 30px;
+}
+
+#dia,#mes,#ano{
+    color: hsl(259, 100%, 65%);
 }

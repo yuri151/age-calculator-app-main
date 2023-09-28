@@ -16,14 +16,14 @@
     <form action="">
 
       <div id="textosinputs">
-        <label>Day</label>
-        <label for="">Month</label>
-        <label for="">Year</label>
+        <label id="texto-dia">Day</label>
+        <label id="texto-mes" >Month</label>
+        <label id="texto-ano">Year</label>
       </div>
 
-      <input class="data" type="text" placeholder="DD">
-      <input class="data" type="text" placeholder="MM">
-      <input class="data" type="text" placeholder="YYYY">
+      <input type="text" placeholder="DD">
+      <input type="text" placeholder="MM">
+      <input  type="text" placeholder="YYYY">
 
       <div id="erros">
         <span id="errodia"></span>
@@ -32,11 +32,16 @@
       </div>
     </form>
 
-    <hr>
-    <button onclick="calcularIdade()"><img src="assets/images/icon-arrow.svg" alt=""></button>
-    <div> <span id="ano">--</span> years</div>
-    <div> <span id="mes">--</span> months</div>
-    <div> <span id="dia">--</span> days</div>
+    <div id="but">
+      <hr>
+      <button onclick="calcularIdade()"><img src="assets/images/icon-arrow.svg" alt=""></button>
+    </div>
+ 
+
+    <p> <span id="ano">- -</span> years</p>
+    <p> <span id="mes">- -</span> months</p>
+    <p> <span id="dia">- -</span> days</p>
+    
 </div>
 </main>
 
