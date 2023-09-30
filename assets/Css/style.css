@@ -19,7 +19,6 @@ main{
     align-items: center;
     text-align: center;
     
-    /* background-color: brown; */
 }
 
 label, input, p, #erros{
@@ -56,6 +55,8 @@ label{
     text-transform: uppercase;
 
     margin-left: 30px;
+
+    color: hsl(0, 1%, 44%);
 }
 
 #texto-dia{
@@ -115,16 +116,11 @@ input{
     font-weight: 500;
     color: hsl(0, 100%, 67%);
     margin-left: 30px;
-    /* margin-top: 5px; DOM */
-    
-    
-    
+      
 }
 
 #erromes, #erroano{
    margin-left: 35px;
-    
- 
 }
 
 #but{
@@ -141,7 +137,7 @@ hr, button{
 
 hr{
     border-bottom: 1px solid hsl(0, 0%, 86%);
-    flex: 1;
+    flex:1;
     margin-left: 30px;
 }
 
@@ -175,4 +171,90 @@ p{
 
 #dia,#mes,#ano{
     color: hsl(259, 100%, 65%);
+}
+
+#hr2{
+    display: none;
+}
+@media (max-width: 530px) {
+    #conteudo{
+        width: 305px;
+        border-radius: 15px;
+        border-bottom-right-radius: 100px;
+
+
+    }
+    
+    form{
+        margin-top: 30px; 
+    }  
+    
+    #texto-dia, #texto-mes, #texto-ano{
+        margin: 0px;
+    }
+
+    #texto-dia{
+        margin-left: 20px;
+    }
+
+    #texto-mes{
+        margin-left: 65px;
+    }
+
+    #texto-ano{
+        margin-left: 40px;
+    }
+
+    input{
+        width: 60px;
+        margin-left: 10px;
+        border-width: 2px;
+        border-color: hsl(0, 0%, 94%);
+        border-radius: 7px;
+    }
+
+    #inputdia, hr{
+        margin-left: 20px;
+    }
+
+    #erros{
+        /* display: block; */
+        margin-left: 20px;
+        font-size: 8px;
+        
+    }
+
+    #erromes, #erroano{
+        margin-left: 6px;
+     }
+
+    #but{
+        width: 100%;
+        justify-content: center;
+        margin-top: 0px;
+        margin-top: 40px;
+    }
+
+ 
+    hr{
+        border-color: hsl(0, 0%, 94%);
+       border-width: 2px;
+    }
+
+    #hr2{
+        display: inline;
+        margin-left: 0;
+        margin-right: 20px;
+        
+    }
+    
+    #saida{
+        margin-top: 24px;
+    }
+
+    p{
+        font-size: 45px;
+        line-height: 55px;
+        margin-left: 20px;
+    }
 }

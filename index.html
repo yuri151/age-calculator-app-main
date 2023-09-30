@@ -21,9 +21,9 @@
         <label id="texto-ano">Year</label>
       </div>
 
-      <input type="number" placeholder="DD">
-      <input type="number" placeholder="MM">
-      <input type="number" placeholder="YYYY">
+      <input id="inputdia" type="number" placeholder="DD">
+      <input id="inputmes" type="number" placeholder="MM">
+      <input id="inputano" type="number" placeholder="YYYY">
 
       <div id="erros">
           <span id="errodia"></span>
@@ -33,8 +33,9 @@
     </form>
 
     <div id="but">
-      <hr>
-      <button onclick="calcularIdade()"><img src="assets/images/icon-arrow.svg" alt=""></button>
+      <hr id="hr1">
+      <div><button onclick="calcularIdade()"><img src="assets/images/icon-arrow.svg" alt=""></button></div>
+      <hr id="hr2">
     </div>
  
 

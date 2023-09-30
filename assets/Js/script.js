@@ -33,6 +33,8 @@ function calcularIdade(){
     let msg
     let erros
 
+    let margin_erros
+
     erroDia.innerText = ""
     erroMes.innerText = ""
     erroAno.innerText = ""
@@ -114,13 +116,15 @@ function calcularIdade(){
         textoano.style.color = "hsl(0, 100%, 67%)"
 
         erros.style.display = "block"
+        
+        margin_erros = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) <= 530? "95px": "130px"
+        erroMes.style.marginLeft = margin_erros
 
-        erroMes.style.marginLeft = "130px"
-
-    }  else if(anoValor > anoAtual || anoValor == " " ){
+    } 
+     else if(anoValor > anoAtual || anoValor == " " ){
         msg = anoValor == " "? "This field is required": "Must be in the past"
         erroAno.innerText =  msg
-
+        
         dia.style.borderColor = "hsl(0, 100%, 67%)"
         mes.style.borderColor = "hsl(0, 100%, 67%)"
         ano.style.borderColor = "hsl(0, 100%, 67%)"
@@ -130,7 +134,8 @@ function calcularIdade(){
         textoano.style.color = "hsl(0, 100%, 67%)"
 
         erros.style.display = "block"
-        erroMes.style.marginLeft = "225px"
+        margin_erros = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) <= 530? "180px": "225px"
+        erroMes.style.marginLeft = margin_erros
 
     }
 
