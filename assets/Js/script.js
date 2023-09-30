@@ -1,5 +1,5 @@
 function calcularIdade(){
-   
+//    ideia utilizar uma lista e um  dicionario e for para diminuir o codigo a lista para fazer o for e o dicionario para receber esses valores 
     let dia =  document.getElementsByTagName("input")[0]
     let mes =  document.getElementsByTagName("input")[1]
     let ano =  document.getElementsByTagName("input")[2]
@@ -17,8 +17,9 @@ function calcularIdade(){
     let esano = document.getElementById("ano")
 
 
+   
+    let bissexto 
     let now = new Date()
-    let bissexto = 0
     let diaAtual = now.getDate() 
     let mesAtual = now.getMonth() +1
     let anoAtual = now.getFullYear()
@@ -29,6 +30,8 @@ function calcularIdade(){
     let mesValor = Number(mes.value)
     let anoValor = Number(ano.value)
     
+    let msg
+    let erros
 
     erroDia.innerText = ""
     erroMes.innerText = ""
@@ -42,10 +45,13 @@ function calcularIdade(){
     textomes.style.color = "black"
     textoano.style.color = "black"
 
+    erros = document.getElementById("erros")
+    erros.style.display = "none"
+
     DiaTotalMes = mesValor in lista30dias? 30 : 31
 
 
-    if(diaValor == " " || mesValor == " " || anoValor == " "|| diaValor > 31 || mesValor > 12 || anoValor > anoAtual){
+    if(diaValor == " " &&  mesValor == " " && anoValor == " "){
             erroDia.innerText = "This field is required"
             erroMes.innerText = "This field is required"
             erroAno.innerText = "This field is required"
@@ -58,6 +64,73 @@ function calcularIdade(){
             textomes.style.color = "hsl(0, 100%, 67%)"
             textoano.style.color = "hsl(0, 100%, 67%)"
 
+            erros.style.display = "block"
+
+
+    }
+
+    else if (diaValor > 31 && mesValor > 12 && anoValor > anoAtual ){
+        erroDia.innerText = "Must be a valid day"
+        erroMes.innerText = "Must be a valid month"
+        erroAno.innerText = "Must be in the past"
+
+        dia.style.borderColor = "hsl(0, 100%, 67%)"
+        mes.style.borderColor = "hsl(0, 100%, 67%)"
+        ano.style.borderColor = "hsl(0, 100%, 67%)"
+
+        textodia.style.color = "hsl(0, 100%, 67%)"
+        textomes.style.color = "hsl(0, 100%, 67%)"
+        textoano.style.color = "hsl(0, 100%, 67%)"
+
+        erros.style.display = "block"
+    }
+
+
+    else if(diaValor > 31 || diaValor == " "){
+        msg = diaValor == " "? "This field is required": "Must be a valid day"
+        erroDia.innerText =  msg
+
+        dia.style.borderColor = "hsl(0, 100%, 67%)"
+        mes.style.borderColor = "hsl(0, 100%, 67%)"
+        ano.style.borderColor = "hsl(0, 100%, 67%)"
+
+        textodia.style.color = "hsl(0, 100%, 67%)"
+        textomes.style.color = "hsl(0, 100%, 67%)"
+        textoano.style.color = "hsl(0, 100%, 67%)"
+
+        erros.style.display = "block"
+
+    }
+    else if(mesValor > 12 || mesValor == " "){
+        msg = mesValor == " "? "This field is required": "Must be a valid month"
+        erroMes.innerText =  msg
+
+        dia.style.borderColor = "hsl(0, 100%, 67%)"
+        mes.style.borderColor = "hsl(0, 100%, 67%)"
+        ano.style.borderColor = "hsl(0, 100%, 67%)"
+
+        textodia.style.color = "hsl(0, 100%, 67%)"
+        textomes.style.color = "hsl(0, 100%, 67%)"
+        textoano.style.color = "hsl(0, 100%, 67%)"
+
+        erros.style.display = "block"
+
+        erroMes.style.marginLeft = "130px"
+
+    }  else if(anoValor > anoAtual || anoValor == " " ){
+        msg = anoValor == " "? "This field is required": "Must be in the past"
+        erroAno.innerText =  msg
+
+        dia.style.borderColor = "hsl(0, 100%, 67%)"
+        mes.style.borderColor = "hsl(0, 100%, 67%)"
+        ano.style.borderColor = "hsl(0, 100%, 67%)"
+
+        textodia.style.color = "hsl(0, 100%, 67%)"
+        textomes.style.color = "hsl(0, 100%, 67%)"
+        textoano.style.color = "hsl(0, 100%, 67%)"
+
+        erros.style.display = "block"
+        erroMes.style.marginLeft = "225px"
 
     }
 
@@ -67,12 +140,10 @@ function calcularIdade(){
             bissexto = anoValor %4 == 0 ? 29: 28
             DiaTotalMes = bissexto
             
-
-            if(diaValor > DiaTotalMes  ){
-                erroDia.innerText = "Must be a valid day"
-                erroMes.innerText = "Must be a valid day"
-                erroAno.innerText = "Must be a valid day"
-
+            if(diaValor > DiaTotalMes || diaValor == " "){
+                msg = diaValor == " "? "This field is required": "Must be a valid day"
+                erroDia.innerText =  msg
+                
                 dia.style.borderColor = "hsl(0, 100%, 67%)"
                 mes.style.borderColor = "hsl(0, 100%, 67%)"
                 ano.style.borderColor = "hsl(0, 100%, 67%)"
@@ -80,7 +151,7 @@ function calcularIdade(){
                 textodia.style.color = "hsl(0, 100%, 67%)"
                 textomes.style.color = "hsl(0, 100%, 67%)"
                 textoano.style.color = "hsl(0, 100%, 67%)"
-                    
+                erros.style.display = "block" 
             }
 
             else{

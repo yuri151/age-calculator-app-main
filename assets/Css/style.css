@@ -38,7 +38,7 @@ label, input, p, #erros{
 form{
      margin-top: 35px;
      text-align: left;
-    flex-direction: row;
+     flex-direction: row;
 }
 
 
@@ -65,6 +65,26 @@ label{
 #texto-mes{
     margin-right: 50px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::placeholder{
+    color: hsl(0, 1%, 58%);
+    font-weight: 600;
+}
+    
+input:focus {
+    box-shadow: 0 0 0 0 ;
+    outline: 0;
+
+    border-color: hsl(259, 100%, 70%);
+    caret-color:hsl(259, 100%, 70%);
+}
+
 input{
     width: 80px;
     height: 40px;
@@ -72,6 +92,7 @@ input{
     padding-left: 15px;
     margin-top: 5px;
     margin-left: 30px;
+    margin-bottom: 5px;
 
       
     font-weight: 600;
@@ -79,39 +100,49 @@ input{
 
     border-width: 1px;
     border-style: solid;
-    border-color: hsl(0, 0%, 94%);
+    border-color: hsl(0, 0%, 86%);
     border-radius: 5px;
 
-    outline-color: hsl(259, 50%, 85%);
-
+    
+    /* outline-color: hsl(259, 100%, 75%); */
     background-color: hsl(0, 0%, 100%);
 }
 
 #erros{
-    display: block;
-    font-size: 10px;
+    display: none;
+    font-size: 9px;
     font-style: italic;
+    font-weight: 500;
     color: hsl(0, 100%, 67%);
     margin-left: 30px;
-    margin-top: 5px;
+    /* margin-top: 5px; DOM */
+    
+    
+    
 }
 
 #erromes, #erroano{
-    margin-left: 27px;
+   margin-left: 35px;
+    
+ 
 }
 
 #but{
     display: flex;
     align-items: center;
-    margin-top:5px;
+    margin-top: 20px;
     margin-right: 40px;
+    height:35px;
+}
+
+hr, button{
+    margin-bottom: 20px;
 }
 
 hr{
     border-bottom: 1px solid hsl(0, 0%, 86%);
     flex: 1;
     margin-left: 30px;
-  
 }
 
 button{
@@ -133,7 +164,7 @@ img{
 }
 
 p{
-    font-size: 57px;
+    font-size: 60px;
     font-weight: 800;
     font-style: italic;
     text-align: left;
