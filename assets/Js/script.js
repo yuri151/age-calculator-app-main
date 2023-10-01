@@ -43,12 +43,14 @@ function calcularIdade(){
     mes.style.borderColor = "hsl(0, 0%, 94%)"
     ano.style.borderColor = "hsl(0, 0%, 94%)"
 
-    textodia.style.color = "black"
-    textomes.style.color = "black"
-    textoano.style.color = "black"
+    textodia.style.color = "hsl(0, 1%, 44%)"
+    textomes.style.color = "hsl(0, 1%, 44%)"
+    textoano.style.color = "hsl(0, 1%, 44%)"
 
     erros = document.getElementById("erros")
     erros.style.display = "none"
+    erroMes.style.marginLeft = "35px"
+    erroAno.style.marginLeft = "35px"
 
     DiaTotalMes = mesValor in lista30dias? 30 : 31
 
@@ -124,7 +126,7 @@ function calcularIdade(){
      else if(anoValor > anoAtual || anoValor == " " ){
         msg = anoValor == " "? "This field is required": "Must be in the past"
         erroAno.innerText =  msg
-        
+
         dia.style.borderColor = "hsl(0, 100%, 67%)"
         mes.style.borderColor = "hsl(0, 100%, 67%)"
         ano.style.borderColor = "hsl(0, 100%, 67%)"
@@ -135,7 +137,7 @@ function calcularIdade(){
 
         erros.style.display = "block"
         margin_erros = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) <= 530? "180px": "225px"
-        erroMes.style.marginLeft = margin_erros
+        erroAno.style.marginLeft = margin_erros
 
     }
 
@@ -174,14 +176,16 @@ function calcularIdade(){
         else{
 
             if(mesAtual < mesValor){
-
-                anoValor = anoAtual - anoValor -1
+                
+                anoValor = anoAtual == anoValor? 0 : anoAtual - anoValor -1
                 mesValor =  12- (mesValor - mesAtual) 
-                diaValor = diaAtual - diaValor
+                diaValor= diaValor > diaAtual? diaValor - diaAtual : diaAtual - diaValor
+
 
                 esdia.innerText = diaValor
                 esmes.innerText = mesValor
                 esano.innerText = anoValor
+                
 
             }
 
@@ -189,7 +193,8 @@ function calcularIdade(){
 
                 anoValor = anoAtual - anoValor 
                 mesValor =  0
-                diaValor = diaAtual - diaValor
+                diaValor= diaValor > diaAtual? diaValor - diaAtual : diaAtual - diaValor
+
 
                 esdia.innerText = diaValor
                 esmes.innerText = mesValor
@@ -198,10 +203,10 @@ function calcularIdade(){
             }
 
             else{
-                
+
                 anoValor = anoAtual - anoValor 
                 mesValor = ( 12- (mesValor - mesAtual))-12
-                diaValor = diaAtual - diaValor
+                diaValor= diaValor > diaAtual? diaValor - diaAtual : diaAtual - diaValor
 
                 esdia.innerText = diaValor
                 esmes.innerText = mesValor
